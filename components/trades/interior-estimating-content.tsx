@@ -30,7 +30,7 @@ const interiorTypes = [
 export function InteriorEstimatingContent() {
   return (
     <section className="bg-black text-white">
-      <section className="px-6 pb-16 pt-8 md:px-12 lg:px-20">
+      <section className="mx-auto max-w-7xl px-6 pb-16 pt-8">
         <nav className="mb-16 text-sm text-[#d9d9d9]/60">
           <Link href="/trades">Trades</Link>
           <span className="mx-2">{">"}</span>
@@ -60,7 +60,7 @@ export function InteriorEstimatingContent() {
         </div>
       </section>
 
-      <section className="px-6 py-16 md:px-12 lg:px-20">
+      <section className="mx-auto max-w-7xl px-6 py-16">
         <h2 className="mb-8 text-xl font-bold md:text-2xl">Why Interior Estimates Matter:</h2>
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 md:gap-10">
           {whyMatters.map((item) => (
@@ -74,7 +74,7 @@ export function InteriorEstimatingContent() {
         </div>
       </section>
 
-      <section className="px-6 py-16 md:px-12 lg:px-20">
+      <section className="mx-auto max-w-7xl px-6 py-16">
         <h2 className="mb-6 text-center text-3xl font-bold md:text-4xl">
           Types of Interior Estimates
         </h2>

@@ -10,60 +10,70 @@ const services = [
     description:
       "Accurate cost estimates to help you budget confidently and submit competitive bids.",
     icon: CostEstimationIcon,
+    href: "/cost-estimation",
   },
   {
     title: "Construction\nEstimation",
     description:
       "Detailed construction estimates covering labor, materials, equipment, and overhead.",
     icon: ConstructionEstimationIcon,
+    href: "/construction-estimation",
   },
   {
     title: "Construction\nTakeoff",
     description:
       "Precise quantity takeoffs that eliminate guesswork and improve bid accuracy.",
     icon: ConstructionTakeoffIcon,
+    href: "/construction-takeoff",
   },
   {
     title: "Residential\nEstimating",
     description:
       "Reliable estimating solutions for residential projects of all sizes.",
     icon: ResidentialEstimatingIcon,
+    href: "/residential-estimation",
   },
   {
     title: "Commercial\nEstimating",
     description:
       "Comprehensive commercial estimates designed for complex, large-scale projects.",
     icon: CommercialEstimatingIcon,
+    href: "/commercial-estimating",
   },
   {
     title: "CPM\nScheduling",
     description:
       "Professional CPM schedules that optimize timelines and project coordination.",
     icon: CPMSchedulingIcon,
+    href: "/cpm-scheduling",
   },
   {
     title: "Industrial\nEstimating",
     description:
       "Accurate industrial estimates aligned with strict standards and project demands.",
     icon: IndustrialEstimatingIcon,
+    href: "/industrial-estimating",
   },
   {
     title: "Preliminary\nEstimating",
     description:
       "Early-stage cost insights to support planning and feasibility decisions.",
     icon: PreliminaryEstimatingIcon,
+    href: "/preliminary-estimating",
   },
   {
     title: "3D\nVisualization",
     description:
       "Bring designs to life with detailed 3D models that clearly communicate form, layout, and intent.",
     icon: ThreeDVisualizationIcon,
+    href: "/3d-visualization",
   },
   {
     title: "Interior\nDesign",
     description:
       "Create functional, well-planned interior spaces that support workflow, comfort, and efficiency.",
     icon: InteriorDesignIcon,
+    href: "/interior-design-services",
   },
 ]
 
@@ -127,8 +137,9 @@ export function ServicesSection() {
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {services.map((service) => (
-            <div
+            <Link
               key={service.title}
+              href={service.href}
               className="group relative flex w-[260px] shrink-0 snap-start flex-col overflow-hidden rounded-[22px] border-[3px] border-white/60 bg-white/[0.03] p-6 transition-all hover:border-white/80 md:w-[300px]"
               style={{ height: "420px" }}
             >
@@ -150,7 +161,7 @@ export function ServicesSection() {
               <h3 className="relative z-10 whitespace-pre-line font-serif text-[28px] font-extrabold leading-[38px] text-foreground md:text-[32px] md:leading-[44px]">
                 {service.title}
               </h3>
-            </div>
+            </Link>
           ))}
         </div>
 

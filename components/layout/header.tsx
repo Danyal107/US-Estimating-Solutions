@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ChevronDown, Menu, X } from "lucide-react"
+import { USALogo } from "@/components/common/usa-logo"
 
 const navLinks = [
   {
@@ -225,80 +226,5 @@ export function Header() {
         </div>
       )}
     </header>
-  )
-}
-
-function USALogo() {
-  return (
-    <svg
-      width="100"
-      height="48"
-      viewBox="0 0 100 48"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      {/* Stacked hexagon/diamond icon */}
-      <g transform="translate(2, 2)">
-        {/* Top diamond */}
-        <path
-          d="M16 4L26 12L16 20L6 12Z"
-          stroke="white"
-          strokeWidth="1.5"
-          fill="none"
-        />
-        {/* Middle layer */}
-        <path
-          d="M6 16L16 24L26 16"
-          stroke="white"
-          strokeWidth="1.2"
-          fill="none"
-        />
-        {/* Bottom layers */}
-        <path
-          d="M6 20L16 28L26 20"
-          stroke="white"
-          strokeWidth="1"
-          fill="none"
-        />
-        <path
-          d="M6 24L16 32L26 24"
-          stroke="white"
-          strokeWidth="0.8"
-          fill="none"
-          opacity="0.8"
-        />
-        <path
-          d="M8 27.5L16 34L24 27.5"
-          stroke="white"
-          strokeWidth="0.6"
-          fill="none"
-          opacity="0.5"
-        />
-      </g>
-      {/* USA text */}
-      <text
-        x="36"
-        y="24"
-        fill="white"
-        fontSize="20"
-        fontWeight="800"
-        fontFamily="Inter, sans-serif"
-        letterSpacing="1"
-      >
-        USA
-      </text>
-      {/* Subtitle */}
-      <text
-        x="36"
-        y="35"
-        fill="white"
-        fontSize="5.5"
-        fontFamily="Inter, sans-serif"
-        opacity="0.6"
-        letterSpacing="0.5"
-      >
-        Estimating Solutions
-      </text>
-    </svg>
   )
 }

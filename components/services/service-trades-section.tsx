@@ -1,8 +1,10 @@
+import Link from "next/link"
+
 const trades = [
-  "Structural Estimating",
-  "MEP Estimation",
-  "Interior Estimating",
-  "Exterior Estimating",
+  { label: "Structural Estimating", href: "/trades/structural" },
+  { label: "MEP Estimation", href: "/trades/mep" },
+  { label: "Interior Estimating", href: "/trades/interior" },
+  { label: "Exterior Estimating", href: "/trades/exterior" },
 ]
 
 const tradeGlowColors = [
@@ -27,9 +29,10 @@ export function ServiceTradesSection() {
 
       <div className="mx-auto mb-12 grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {trades.map((trade, index) => (
-          <div
-            key={trade}
-            className="relative h-80 overflow-hidden rounded-2xl border border-[#d9d9d9]/20 bg-[#0a0a0a]"
+          <Link
+            key={trade.label}
+            href={trade.href}
+            className="relative block h-80 overflow-hidden rounded-2xl border border-[#d9d9d9]/20 bg-[#0a0a0a] transition-colors hover:border-[#d9d9d9]/40"
           >
             <div
               className="absolute inset-0"
@@ -38,16 +41,19 @@ export function ServiceTradesSection() {
               }}
             />
             <div className="relative z-10 p-6">
-              <h3 className="text-xl font-bold text-white">{trade}</h3>
+              <h3 className="text-xl font-bold text-white">{trade.label}</h3>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
       <div className="flex justify-center">
-        <button className="rounded-full border border-[#d9d9d9]/40 px-8 py-3 text-white transition-colors hover:bg-white/5">
+        <Link
+          href="/contact"
+          className="rounded-full border border-[#d9d9d9]/40 px-8 py-3 text-white transition-colors hover:bg-white/5"
+        >
           Submit a plan
-        </button>
+        </Link>
       </div>
     </div>
   )

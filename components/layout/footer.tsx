@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { USALogo } from "@/components/common/usa-logo"
 
 const mainLinks = [
   { number: "01", label: "Home", href: "/" },
@@ -10,8 +11,8 @@ const mainLinks = [
 ]
 
 const sideLinks = [
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
+  { label: "Get a Quote", href: "/contact" },
 ]
 
 export function Footer() {
@@ -21,7 +22,9 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand Column */}
           <div className="flex flex-col gap-4">
-            <FooterLogo />
+            <Link href="/" className="w-fit">
+              <USALogo />
+            </Link>
             <div className="flex flex-col gap-1 text-sm text-muted-foreground">
               <p>Brooklyn, NY 11222, USA</p>
               <p>(716) 226-1302</p>
@@ -32,6 +35,12 @@ export function Footer() {
             >
               info@usaestimatingsolutions.com
             </a>
+            <Link
+              href="/contact"
+              className="mt-2 inline-flex w-fit rounded-full border border-white/35 px-5 py-2 text-xs font-medium text-white transition-colors hover:bg-white hover:text-black"
+            >
+              Get a Quote
+            </Link>
           </div>
 
           {/* Main Links - Column 1 */}
@@ -109,26 +118,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
-}
-
-function FooterLogo() {
-  return (
-    <svg width="100" height="50" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(0, 5)">
-        <path d="M18 2L27 7.5V18.5L18 24L9 18.5V7.5L18 2Z" stroke="white" strokeWidth="1.5" fill="none" />
-        <path d="M18 8L24 11.5V18.5L18 22L12 18.5V11.5L18 8Z" stroke="white" strokeWidth="1" fill="none" opacity="0.7" />
-        <path d="M18 13L22 15V19L18 21L14 19V15L18 13Z" stroke="white" strokeWidth="0.8" fill="none" opacity="0.5" />
-        <line x1="9" y1="24" x2="18" y2="28" stroke="white" strokeWidth="1" opacity="0.6" />
-        <line x1="27" y1="24" x2="18" y2="28" stroke="white" strokeWidth="1" opacity="0.6" />
-        <line x1="18" y1="28" x2="18" y2="34" stroke="white" strokeWidth="1" opacity="0.4" />
-      </g>
-      <text x="36" y="26" fill="white" fontSize="22" fontWeight="700" fontFamily="Inter, sans-serif">
-        USA
-      </text>
-      <text x="36" y="39" fill="white" fontSize="7" fontFamily="Inter, sans-serif" opacity="0.7">
-        Estimating Solutions
-      </text>
-    </svg>
   )
 }
