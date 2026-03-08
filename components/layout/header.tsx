@@ -49,13 +49,26 @@ const servicesDropdownColumns = [
   [{ label: "Interior Design Services", href: "/interior-design-services" }],
 ]
 
+const tradesDropdownColumns = [
+  [
+    { label: "Interior Estimating", href: "/trades/interior" },
+    { label: "Exterior Estimating", href: "/trades/exterior" },
+  ],
+  [
+    { label: "MEP Estimating", href: "/trades/mep" },
+    { label: "Structural Estimating", href: "/trades/structural" },
+  ],
+]
+
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+  const [tradesOpen, setTradesOpen] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
     setServicesOpen(false)
+    setTradesOpen(false)
   }, [pathname])
 
   return (
@@ -81,11 +94,37 @@ export function Header() {
                   type="button"
                   aria-label="Toggle services dropdown"
                   aria-expanded={servicesOpen}
-                  onClick={() => setServicesOpen((prev) => !prev)}
+                  onClick={() => {
+                    setServicesOpen((prev) => !prev)
+                    setTradesOpen(false)
+                  }}
                   className="text-muted-foreground transition-colors hover:text-foreground"
                 >
                   <ChevronDown
                     className={`h-3.5 w-3.5 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+              </div>
+            ) : link.label === "Trades" ? (
+              <div key={link.label} className="flex items-center gap-1">
+                <Link
+                  href={link.href}
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {link.label}
+                </Link>
+                <button
+                  type="button"
+                  aria-label="Toggle trades dropdown"
+                  aria-expanded={tradesOpen}
+                  onClick={() => {
+                    setTradesOpen((prev) => !prev)
+                    setServicesOpen(false)
+                  }}
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  <ChevronDown
+                    className={`h-3.5 w-3.5 transition-transform ${tradesOpen ? "rotate-180" : ""}`}
                   />
                 </button>
               </div>
@@ -125,6 +164,26 @@ export function Header() {
           <div className="mx-auto grid max-w-7xl grid-cols-4 gap-10 px-6 py-8">
             {servicesDropdownColumns.map((column, columnIndex) => (
               <div key={`services-column-${columnIndex}`} className="flex flex-col gap-4">
+                {column.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {tradesOpen && (
+        <div className="hidden border-t border-border/40 bg-background/95 lg:block">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-10 px-6 py-8">
+            {tradesDropdownColumns.map((column, columnIndex) => (
+              <div key={`trades-column-${columnIndex}`} className="flex flex-col gap-4">
                 {column.map((item) => (
                   <Link
                     key={item.label}
