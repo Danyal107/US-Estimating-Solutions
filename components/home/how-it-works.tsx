@@ -1,9 +1,9 @@
 const steps = [
-  { label: "Share Plans" },
-  { label: "Receive a Quote" },
-  { label: "Process Payment" },
-  { label: "Get Estimates" },
-]
+  { label: 'Share Plans' },
+  { label: 'Receive a Quote' },
+  { label: 'Process Payment' },
+  { label: 'Get Estimates' },
+];
 
 export function HowItWorks() {
   return (
@@ -13,20 +13,26 @@ export function HowItWorks() {
           How Can You Receive Construction Estimates
         </h2>
 
-        {/* Steps */}
-        <div className="flex flex-col items-center gap-2 md:flex-row md:gap-0">
+        {/* Steps Container: Added justify-center to center the row */}
+        <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:gap-0">
           {steps.map((step, index) => (
             <div key={step.label} className="flex items-center">
-              <span className="whitespace-nowrap text-sm text-muted-foreground md:text-base">
+              {/* Updated color to #D9D9D9 and matched Figma font-weight */}
+              <span
+                className="whitespace-nowrap text-sm font-medium md:text-base"
+                style={{ color: '#D9D9D9' }}
+              >
                 {step.label}
               </span>
+
+              {/* Divider Logic */}
               {index < steps.length - 1 && (
-                <div className="mx-4 hidden h-px w-24 bg-muted-foreground/30 md:block lg:w-40" />
+                <div className="mx-4 hidden h-px w-16 bg-muted-foreground/30 md:block lg:w-32 xl:w-40" />
               )}
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
