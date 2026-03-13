@@ -4,9 +4,9 @@ import Link from 'next/link';
 export function HeroSection() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-background pt-20">
-      <div className="mx-auto flex max-w-7xl flex-col items-start px-6 py-20 lg:flex-row lg:items-end lg:py-32">
+      <div className="mx-auto flex max-w-7xl flex-col items-start px-6 py-14 lg:flex-row lg:items-end lg:py-20">
         {/* Left Content */}
-        <div className="relative z-10 flex max-w-xl flex-col gap-6 pb-16 lg:pb-32">
+        <div className="relative z-10 flex max-w-xl flex-col gap-6 pb-8 lg:pb-12">
           <h1 className="text-4xl font-bold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl text-balance">
             <span>
               Bid{' '}
@@ -42,13 +42,13 @@ export function HeroSection() {
         </div>
 
         {/* Right - Cityscape Image */}
-        <div className="relative mt-12 flex-1 lg:mt-0">
+        <div className="relative mt-6 flex-1 lg:mt-0">
           <Image
             src="/images/cityscape.png"
             alt="City skyline illustration representing construction and urban development"
-            width={800}
-            height={500}
-            className="w-full max-w-2xl object-contain opacity-90"
+            width={1100}
+            height={620}
+            className="w-full max-w-3xl lg:max-w-[48rem] object-contain opacity-95"
             priority
           />
         </div>
